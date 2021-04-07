@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-            <form method="POST" action="{{route ('item.store')}}">
+            <form method="POST" action="{{route ('item.salva')}}">
                 @csrf
                 @method('POST')
                 <div class="form-group">

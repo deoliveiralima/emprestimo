@@ -14,6 +14,9 @@ class ItemController extends Controller
      */
     public function index()
     {
+        $itens = Item::all();
+
+        return view('item.inicio', $itens);
         //
     }
 

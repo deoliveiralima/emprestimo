@@ -25,3 +25,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/item/cadastro', 'ItemController@create')->name('item.create');
 Route::post('/item/cadastro', 'ItemController@store')->name('item.store');
+
+Route::get('emprestimo/', 'EmprestimoController@index')->name('emprestimo.create');
+
+Route::get('emprestimo/{id}', 'EmprestimoController@index')->name('emprestimo.create');
+Route::post('emprestimo/', 'EmprestimoController@create')->name('emprestimo.create');
+Route::put('emprestimo/{id}', 'EmprestimoController@create')->name('emprestimo.create');
+Route::delete('emprestimo/{id}', 'EmprestimoController@create')->name('emprestimo.create');

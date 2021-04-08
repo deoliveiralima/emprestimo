@@ -16,7 +16,7 @@ class ItemController extends Controller
     {
         $itens = Item::all();
 
-        return view('item.inicio', $itens);
+        return view('item.inicio', [ 'itens' => $itens]);
         //
     }
 
@@ -68,6 +68,8 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
+
+        return view('item.edita', ['item'=>$item]);
         //
     }
 
@@ -80,6 +82,12 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
+        $item->nome = $request->nome;
+        $item->codigo = $request->codigo;
+        $item->observacao = $request->observacao;
+        $item->save();
+
+        return redirect('item/');
         //
     }
 
@@ -91,6 +99,10 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
+
+        $item->delete();
+
+        return redirect('item');
         //
     }
 }

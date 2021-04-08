@@ -17,7 +17,7 @@ class CreateItemsTable extends Migration
             $table->id();
             $table->string('nome');
             $table->string('codigo')->unique()->nullable();
-            $table->string('observacao');
+            $table->string('observacao')->nullable();
             $table->timestamps();
             
 

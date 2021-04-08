@@ -27,10 +27,10 @@ Route::view('/inicio', 'inicio.home');
 Route::get('item','ItemController@index')->name('item.inicio');
 Route::get('item/adiciona','ItemController@create')->name('item.adiciona');
 Route::post('item','ItemController@store')->name('item.salva');
-Route::get('item/{id}','ItemController@show')->name('item.exibe');
-Route::get('item/{id}/edita','ItemController@edit')->name('item.edita');
-Route::put('item/{id}','ItemController@update')->name('item.atualiza');
-Route::delete('item/{id}','ItemController@destroy')->name('item.exclui');
+Route::get('item/{item}','ItemController@show')->name('item.exibe');
+Route::get('item/{item}/edita','ItemController@edit')->name('item.edita');
+Route::put('item/{item}','ItemController@update')->name('item.atualiza');
+Route::delete('item/{item}','ItemController@destroy')->name('item.exclui');
 
 Route::get('solicitante','SolicitanteController@index')->name('solicitante.inicio');
 Route::get('solicitante/adiciona','SolicitanteController@create')->name('solicitante.adiciona');

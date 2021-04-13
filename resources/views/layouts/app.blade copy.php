@@ -74,7 +74,10 @@
 
         <main class="py-4">
             @yield('content')
+           
         </main>
     </div>
+<h1>se</h1>
+    @yield('script')
 </body>
 </html>

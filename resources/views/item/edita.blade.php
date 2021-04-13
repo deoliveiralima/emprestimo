@@ -23,7 +23,7 @@
                     <label for="observacao">Observação: </label>
                     <input type="text" class="form-control" name="observacao" value="{{$item->observacao}}"  id="observacao" placeholder="Obervação">
                 </div>
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button> 
             </form>
         </div>
     </div>

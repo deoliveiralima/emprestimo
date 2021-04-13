@@ -47,3 +47,6 @@ Route::get('emprestimo/{id}','EmprestimoController@show')->name('emprestimo.exib
 Route::get('emprestimo/{id}/edita','EmprestimoController@edit')->name('emprestimo.edita');
 Route::put('emprestimo/{id}','EmprestimoController@update')->name('emprestimo.atualiza');
 Route::delete('emprestimo/{id}','EmprestimoController@destroy')->name('emprestimo.exclui');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

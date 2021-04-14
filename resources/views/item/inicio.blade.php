@@ -24,52 +24,49 @@
                                 <td>{{$item->codigo}}</td>
                                 <td>{{$item->observacao}}</td>
                                 <td>
-                                    <a  class="btn btn-success d-inline" href="{{route('item.edita', ['item'=>$item->id])}}" role="button">Modificar</a> 
+                                    <div class="d-flex flex-row">
+                                    <a  class="btn btn-success d-inline mr-2" href="{{route('item.edita', ['item'=>$item->id])}}" role="button">Modificar</a> 
                                     
                                    <modal-confirma item-id="{{$item->id}}" item-nome="{{$item->nome}}"> </modal-confirma>
-                                    
-                                    <form method="POST" class="d-inline" action="{{route('item.exclui', ['item'=>$item->id])}}">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger">Excluir</button>
-
-                                    </form>
-                                     
+                                    </div>
                                 </td>
                             </tr>
                             
                         @endforeach
+                        {{ $itens->links() }}
             
                     </tbody>
                   </table>
             </div>
     </div>
 </div>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="modalConfirmaExclusao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal" tabindex="-1" id="modalConfirmaExclusao" role="dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content ">
+        <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Confirma exclusão de <span id="nomeItem"> </span></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <h5 class="modal-title">Confirmação</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-                </button>
+            </button>
             </div>
-            <div class="d-flex justify-content-center align-items-center ">
-               <form id="formExclusaoItem" method="POST" action="">
-                   @csrf
-                  @method('delete')
-                  <button type="submit" class="btn btn-danger">Excluir</button>
-                  <button type="button" class="btn btn-primary" data-dismiss="modal">Sair</button>
+            <div class="modal-body">
+            <p>Você tem certeza que deseja deletar este item</p>
+            </div>
+            <div class="modal-footer">
+            
+            <form id="formExclusaoItem" method="POST" action="">
+                @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-danger">Excluir</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Sair</button>
 
-               </form>
-            </div>
+            </form>
+            
            
             </div>
         </div>
         </div>
+    </div>
 
 
 @endsection

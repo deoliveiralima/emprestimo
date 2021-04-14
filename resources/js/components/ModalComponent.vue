@@ -1,7 +1,7 @@
 <template>
    <div>
 
-        <button id="btnModal" class="btn btn-primary" data-toggle="modal" @click="ativaModal" > Excluir </button>
+        <button id="btnModal" class="btn btn-danger" data-toggle="modal" @click="ativaModal" > Excluir </button>
         
    </div>
 </template>

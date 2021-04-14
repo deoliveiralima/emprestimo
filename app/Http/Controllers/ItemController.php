@@ -14,9 +14,10 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $itens = Item::all();
+        $itens = Item::paginate(4);
+        
 
-        return view('item.inicio', [ 'itens' => $itens]);
+        return view('item.inicio', compact('itens'));
         //
     }
 

@@ -1,8 +1,19 @@
-.modal-confirma{
-
-    width: 60%;
-    height: 100em;
-    background-color: aliceblue;
+.modal {
+    text-align: center;
+    padding: 0!important;
     
-
-}
+  }
+  
+  .modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+  }
+  
+  .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+  }

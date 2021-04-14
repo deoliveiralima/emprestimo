@@ -21,7 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('modal-confirma', require('./components/ModalComponent.vue').default);
-
+Vue.component('modal-confirma-solicitante', require('./components/ModalSolicitanteExclusao.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

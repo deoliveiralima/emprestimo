@@ -46,7 +46,7 @@ class ItemController extends Controller
         $item->observacao = $request->observacao;
         $item->save();
 
-        return view('item.adiciona');
+        return redirect('item/adiciona');
         //
     }
 

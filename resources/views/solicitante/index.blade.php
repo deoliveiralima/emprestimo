@@ -5,29 +5,29 @@
 <div class="container">
         <div class="row">
             <div class="col">
-                <a class="btn btn-success mb-3" href="{{route('item.adiciona')}}">Adicinar Item</a>
+                <a class="btn btn-success mb-3" href="{{route('solicitante.adiciona')}}">Adicinar Solicitante</a>
                 <table class="table">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Código</th>
-                        <th scope="col">Observação</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Contato</th>
                         <th scope="col">alterações</th>
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($itens as $item)
-                            <tr>
-                                <th scope="row">{{$item->id}}</th>
-                                <td>{{$item->nome}}</td>
-                                <td>{{$item->codigo}}</td>
-                                <td>{{$item->observacao}}</td>
+                        @foreach ($solicitantes as $solicitante)
+                            <tr class="clickable-row">
+                                <th scope="row">{{$solicitante->id}}</th>
+                                <td>{{$solicitante->nome}}</td>
+                                <td>{{$solicitante->email}}</td>
+                                <td>{{$solicitante->contato}}</td>
                                 <td>
                                     <div class="d-flex flex-row">
-                                        <a  class="btn btn-primary d-inline mr-2" href="{{route('item.edita', ['item'=>$item->id])}}" role="button">Modificar</a> 
+                                        <a  class="btn btn-primary d-inline mr-2" href="{{route('solicitante.edita', ['solicitante'=>$solicitante->id])}}" role="button">Modificar</a> 
                                     
-                                        <modal-confirma item-id="{{$item->id}}" item-nome="{{$item->nome}}"> </modal-confirma>
+                                        <modal-confirma-solicitante solicitante-id="{{$solicitante->id}}" solicitante-nome="{{$solicitante->nome}}"> </modal-confirma>
                                     </div>
                                 </td>
                             </tr>
@@ -37,11 +37,11 @@
             
                     </tbody>
                   </table>
-                  {{ $itens->links() }}
+                  {{ $solicitantes->links() }}
             </div>
     </div>
 </div>
-    <div class="modal" tabindex="-1" id="modalConfirmaExclusao" role="dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal" tabindex="-1" id="modalConfirmaExclusaoSolicitante" role="dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -51,12 +51,12 @@
             </button>
             </div>
             <div class="modal-body">
-            <p>Você tem certeza que deseja deletar este item</p>
-            <p id="nomeItem" class="h2"></p>
+            <p>Você tem certeza que deseja deletar este solicitante</p>
+            <p id="nomeSolicitante" class="h2"></p>
             </div>
             <div class="modal-footer">
             
-            <form id="formExclusaoItem" method="POST" action="">
+            <form id="formExclusaoSolicitante" method="POST" action="">
                 @csrf
             @method('delete')
             <button type="submit" class="btn btn-danger">Excluir</button>

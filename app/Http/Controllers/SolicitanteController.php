@@ -14,7 +14,9 @@ class SolicitanteController extends Controller
      */
     public function index()
     {
-        //
+        $solicitantes = Solicitante::paginate(10);
+        
+        return view('solicitante.index', compact('solicitantes'));
     }
 
     /**
@@ -24,6 +26,8 @@ class SolicitanteController extends Controller
      */
     public function create()
     {
+
+        return view('solicitante.adiciona');
         //
     }
 
@@ -35,6 +39,14 @@ class SolicitanteController extends Controller
      */
     public function store(Request $request)
     {
+        $solicitante = new Solicitante();
+
+        $solicitante->nome = $request->nome;
+        $solicitante->email = $request->email;
+        $solicitante->contato = $request->contato;
+        $solicitante->save();
+
+        return redirect('solicitante/adiciona');
         //
     }
 
@@ -46,6 +58,7 @@ class SolicitanteController extends Controller
      */
     public function show(Solicitante $solicitante)
     {
+        return view('solicitante.show', compact('solicitante'));
         //
     }
 
@@ -57,6 +70,9 @@ class SolicitanteController extends Controller
      */
     public function edit(Solicitante $solicitante)
     {
+         
+
+        return view('solicitante.edita', compact('solicitante'));
         //
     }
 
@@ -69,6 +85,13 @@ class SolicitanteController extends Controller
      */
     public function update(Request $request, Solicitante $solicitante)
     {
+        $solicitante->nome = $request->nome;
+        $solicitante->email = $request->email;
+        $solicitante->contato = $request->contato;
+        $solicitante->save();
+
+        return redirect('/solicitante');
+
         //
     }
 
@@ -80,6 +103,9 @@ class SolicitanteController extends Controller
      */
     public function destroy(Solicitante $solicitante)
     {
+        $solicitante->delete();
+
+        return redirect('/solicitante');
         //
     }
 }

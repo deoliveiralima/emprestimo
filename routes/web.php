@@ -35,10 +35,10 @@ Route::delete('item/{item}','ItemController@destroy')->name('item.exclui');
 Route::get('solicitante','SolicitanteController@index')->name('solicitante.inicio');
 Route::get('solicitante/adiciona','SolicitanteController@create')->name('solicitante.adiciona');
 Route::post('solicitante','SolicitanteController@store')->name('solicitante.salva');
-Route::get('solicitante/{id}','SolicitanteController@show')->name('solicitante.exibe');
-Route::get('solicitante/{id}/edita','SolicitanteController@edit')->name('solicitante.edita');
-Route::put('solicitante/{id}','SolicitanteController@update')->name('solicitante.atualiza');
-Route::delete('solicitante/{id}','SolicitanteController@destroy')->name('solicitante.exclui');
+Route::get('solicitante/{solicitante}','SolicitanteController@show')->name('solicitante.exibe');
+Route::get('solicitante/{solicitante}/edita','SolicitanteController@edit')->name('solicitante.edita');
+Route::put('solicitante/{solicitante}','SolicitanteController@update')->name('solicitante.atualiza');
+Route::delete('solicitante/{solicitante}','SolicitanteController@destroy')->name('solicitante.exclui');
 
 Route::get('emprestimo','EmprestimoController@index')->name('emprestimo.inicio');
 Route::get('emprestimo/adiciona','EmprestimoController@create')->name('emprestimo.adiciona');

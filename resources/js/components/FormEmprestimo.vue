@@ -1,46 +1,73 @@
 <template>
-   <div>
-
-        <form>
-            <div class="form-group row">
-              <label for="" class="col-sm-2 form-control-label">Country</label>
-              <div class="col-sm-10">
-                <select class="form-control selectpicker" id="select-country" data-live-search="true">
-                    <option data-tokens="china">China</option>
-                    <option data-tokens="malayasia">Malayasia</option>
-                    <option data-tokens="singapore">Singapore</option>
-                </select>
-
-            </div>
-            </div>
-          </form>
-        
-   </div>
+        <!-- object value -->
+        <model-select :options="options"
+                                v-model="item"
+                                placeholder="select item">
+         </model-select>
+ 
 </template>
-
+ 
 <script>
-
-$(function() {
-  $('.selectpicker').selectpicker();
-});
-
-    export default {
-        props:['solicitanteId', 'solicitanteNome'],
-        mounted() {
-            console.log('') 
-        }, 
-
-
-        methods:{
-            ativaModal(){
-                $('#formExclusaoSolicitante').attr('action', '/solicitante/' + this.solicitanteId);
-                $("#nomeSolicitante").text(this.solicitanteNome);
-                $('#modalConfirmaExclusaoSolicitante').modal('show')
-            }
-
-        }
-    }
-
+  import { ModelSelect } from 'vue-search-select'
+   console.log("Primeiro numero");
+   
+  export default {
+    data () {
+      return {
+        options: [
+          { value: '1', text: 'aa' + ' - ' + '1' },
+          { value: '2', text: 'ab' + ' - ' + '2' },
+          { value: '3', text: 'bc' + ' - ' + '3' },
+          { value: '4', text: 'cd' + ' - ' + '4' },
+          { value: '5', text: 'de' + ' - ' + '5' }
+        ],
+        item: {
+          value: '',
+          text: ''
+        },
+        options2: [
+          { value: '1', text: 'aa' + ' - ' + '1' },
+          { value: '2', text: 'ab' + ' - ' + '2' },
+          { value: '3', text: 'bc' + ' - ' + '3' },
+          { value: '4', text: 'cd' + ' - ' + '4' },
+          { value: '5', text: 'de' + ' - ' + '5' }
+        ],
+        item2: ''
+      }
+    },
+    methods: {
+      reset () {
+        this.item = {}
+      },
+      selectFromParentComponent1 () {
+        // select option from parent component
+        this.item = this.options[0]
+      },
+      reset2 () {
+        this.item2 = ''
+      },
+      selectFromParentComponent2 () {
+        // select option from parent component
+        this.item2 = this.options2[0].value
+      }
+    },
+    components: {
+      ModelSelect
+    },
     
+  }
 
-</script>
+  axios.get('obteritens')
+  .then(function (response) {
+    // handle success
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
+
+</script> 

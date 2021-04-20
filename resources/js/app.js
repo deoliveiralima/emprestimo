@@ -7,7 +7,7 @@
  import vSelect from 'vue-select'
 
 require('./bootstrap');
-
+import 'vue-search-select/dist/VueSearchSelect.css'
 window.Vue = require('vue');
 
 /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Emprestimo;
 use Illuminate\Http\Request;
+use App\Item;
 
 class EmprestimoController extends Controller
 {
@@ -82,5 +83,13 @@ class EmprestimoController extends Controller
     public function destroy(Emprestimo $emprestimo)
     {
         //
+    }
+    public function obterItens(){
+        $itens = Item::all();
+        
+        return response()->json([
+            'itens' => $itens,
+            
+        ]);
     }
 }

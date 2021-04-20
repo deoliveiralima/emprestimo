@@ -40,7 +40,7 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="/item">Itens</a>
                     <a class="dropdown-item" href="/solicitante">Solicitantes</a>
-                    <a class="dropdown-item" href="#">Empréstimos</a>
+                    <a class="dropdown-item" href="/emprestimo/adiciona">Empréstimos</a>
                   </div>
                 </li>
               </ul>

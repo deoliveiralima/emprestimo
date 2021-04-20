@@ -32,6 +32,8 @@ Route::get('item/{item}/edita','ItemController@edit')->name('item.edita');
 Route::put('item/{item}','ItemController@update')->name('item.atualiza');
 Route::delete('item/{item}','ItemController@destroy')->name('item.exclui');
 
+
+
 Route::get('solicitante','SolicitanteController@index')->name('solicitante.inicio');
 Route::get('solicitante/adiciona','SolicitanteController@create')->name('solicitante.adiciona');
 Route::post('solicitante','SolicitanteController@store')->name('solicitante.salva');
@@ -40,6 +42,7 @@ Route::get('solicitante/{solicitante}/edita','SolicitanteController@edit')->name
 Route::put('solicitante/{solicitante}','SolicitanteController@update')->name('solicitante.atualiza');
 Route::delete('solicitante/{solicitante}','SolicitanteController@destroy')->name('solicitante.exclui');
 
+Route::get('emprestimo/obteritens','EmprestimoController@obterItens')->name('emprestimo.obteritens');
 Route::get('emprestimo','EmprestimoController@index')->name('emprestimo.inicio');
 Route::get('emprestimo/adiciona','EmprestimoController@create')->name('emprestimo.adiciona');
 Route::post('emprestimo','EmprestimoController@store')->name('emprestimo.salva');
@@ -47,6 +50,8 @@ Route::get('emprestimo/{id}','EmprestimoController@show')->name('emprestimo.exib
 Route::get('emprestimo/{id}/edita','EmprestimoController@edit')->name('emprestimo.edita');
 Route::put('emprestimo/{id}','EmprestimoController@update')->name('emprestimo.atualiza');
 Route::delete('emprestimo/{id}','EmprestimoController@destroy')->name('emprestimo.exclui');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

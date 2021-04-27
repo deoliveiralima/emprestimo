@@ -86,7 +86,9 @@ class EmprestimoController extends Controller
     }
     public function obterItens(){
         $itens = Item::all();
-        
+
+       // return json_encode($itens);
+    
         return response()->json([
             'itens' => $itens,
             

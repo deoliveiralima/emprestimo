@@ -42,6 +42,7 @@ Route::get('solicitante/{solicitante}/edita','SolicitanteController@edit')->name
 Route::put('solicitante/{solicitante}','SolicitanteController@update')->name('solicitante.atualiza');
 Route::delete('solicitante/{solicitante}','SolicitanteController@destroy')->name('solicitante.exclui');
 
+Route::get("emprestimo/buscaitens", "EmprestimoController@obterItens")->name("emprestimo.itens");
 Route::get('emprestimo/obteritens','EmprestimoController@obterItens')->name('emprestimo.obteritens');
 Route::get('emprestimo','EmprestimoController@index')->name('emprestimo.inicio');
 Route::get('emprestimo/adiciona','EmprestimoController@create')->name('emprestimo.adiciona');

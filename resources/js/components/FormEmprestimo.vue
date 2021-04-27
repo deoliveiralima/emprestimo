@@ -9,11 +9,25 @@
  
 <script>
   import { ModelSelect } from 'vue-search-select'
-   console.log("Primeiro numero");
+   console.log("antes");
+   var itens = null;
+
+   axios.get('buscaitens')
+  .then(function (response) {
+    itens = response.data.itens;
+  });
+
+   console.log("depois");
    
   export default {
+    
+    
     data () {
+      
       return {
+        for(i = 0; i < itens.length; i++){
+
+        }
         options: [
           { value: '1', text: 'aa' + ' - ' + '1' },
           { value: '2', text: 'ab' + ' - ' + '2' },
@@ -25,14 +39,6 @@
           value: '',
           text: ''
         },
-        options2: [
-          { value: '1', text: 'aa' + ' - ' + '1' },
-          { value: '2', text: 'ab' + ' - ' + '2' },
-          { value: '3', text: 'bc' + ' - ' + '3' },
-          { value: '4', text: 'cd' + ' - ' + '4' },
-          { value: '5', text: 'de' + ' - ' + '5' }
-        ],
-        item2: ''
       }
     },
     methods: {

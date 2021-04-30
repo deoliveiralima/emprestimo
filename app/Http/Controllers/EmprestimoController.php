@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Emprestimo;
 use Illuminate\Http\Request;
 use App\Item;
-
+use App\Solicitante;
 class EmprestimoController extends Controller
 {
     /**
@@ -91,6 +91,16 @@ class EmprestimoController extends Controller
     
         return response()->json([
             'itens' => $itens,
+            
+        ]);
+    }
+    public function obterSolicitantes(){
+        $solicitantes = Solicitante::all();
+
+       // return json_encode($itens);
+    
+        return response()->json([
+            'solicitantes' => $solicitantes,
             
         ]);
     }

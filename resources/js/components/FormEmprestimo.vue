@@ -1,79 +1,87 @@
 <template>
+<div>
+  <div class="container">
+    <div class="row">
+      <model-list-select :list="itens"
+          option-value="id"
+          option-text="nome"
+          v-model="item"
+          placeholder="Escolha o Item">
+      </model-list-select>
+    </div>
+    <div class="row mt-2">
+      <model-list-select :list="solicitantes"
+          option-value="id"
+          option-text="nome"
+          v-model="solicitante"
+          placeholder="Escolha o Item">
+      </model-list-select>
+    </div>
+  </div>
         <!-- object value -->
-        <model-select :options="options"
-                                v-model="item"
-                                placeholder="select item">
-         </model-select>
- 
+        
+</div>
 </template>
  
 <script>
-  import { ModelSelect } from 'vue-search-select'
+  import { ModelListSelect } from 'vue-search-select'
+
    console.log("antes");
    var itens = null;
 
-   axios.get('buscaitens')
-  .then(function (response) {
-    itens = response.data.itens;
-  });
+   
 
    console.log("depois");
    
   export default {
+    mounted(){
+      this.obterItens();
+      this.obterSolicitantes();
+      
+    },
     
     
     data () {
       
+      
+      
       return {
-        for(i = 0; i < itens.length; i++){
-
-        }
-        options: [
-          { value: '1', text: 'aa' + ' - ' + '1' },
-          { value: '2', text: 'ab' + ' - ' + '2' },
-          { value: '3', text: 'bc' + ' - ' + '3' },
-          { value: '4', text: 'cd' + ' - ' + '4' },
-          { value: '5', text: 'de' + ' - ' + '5' }
-        ],
-        item: {
-          value: '',
-          text: ''
-        },
+        solicitantes: [],
+        solicitante: '',
+        itens: [],
+        item : '',
       }
     },
+  
     methods: {
+      obterItens(){
+        axios.get('buscaitens')
+      .then( response => (this.itens = response.data.itens))
+      },
+      obterSolicitantes(){
+        axios.get('buscasolicitantes')
+      .then( response => (this.solicitantes = response.data.solicitantes))
+      },
+
       reset () {
-        this.item = {}
+        this.item = {},
+        this.solicitantes = {} 
       },
       selectFromParentComponent1 () {
         // select option from parent component
         this.item = this.options[0]
+        this.solicitante = this.solicitante[0]
+        console.log(this.item);
       },
-      reset2 () {
-        this.item2 = ''
-      },
-      selectFromParentComponent2 () {
-        // select option from parent component
-        this.item2 = this.options2[0].value
-      }
+  
+
     },
     components: {
-      ModelSelect
+      ModelListSelect
     },
     
   }
 
-  axios.get('obteritens')
-  .then(function (response) {
-    // handle success
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function () {
-    // always executed
-  });
+
 
 </script> 
